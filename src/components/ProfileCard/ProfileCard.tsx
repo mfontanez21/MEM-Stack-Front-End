@@ -18,7 +18,7 @@ const ProfileCard = (props: ProfileCardProps): JSX.Element => {
   return (
     <Link to={`/profiles/${profile.id}`} state={profile}>
       <article>
-        <h1>GA SEI Class of 3/20/23</h1>
+        <h3>GA SEI Class of 3/20/23</h3>
         <img src={profilePic} alt={`${profile.name}'s avatar`} />
         <h1>{profile.name}</h1>
       </article>

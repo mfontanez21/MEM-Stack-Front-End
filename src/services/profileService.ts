@@ -49,5 +49,20 @@ async function show (profileId: string): Promise<Profile> {
   
 }
 
+async function createComment(profileId: string, commentFormData: string) {
+  try {
+    const res = await fetch(`${BASE_URL}/${profileId}/comments`, {
+      method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${tokenService.getToken()}`,
+        'Content-Type': 'application/json'
+      },
+      body: commentFormData
+    })
+    return res.json()
+  } catch (error) {
+    console.log(error)
+  }
+}
 
-export { getAllProfiles, addPhoto, show }
+export { getAllProfiles, addPhoto, show, createComment }

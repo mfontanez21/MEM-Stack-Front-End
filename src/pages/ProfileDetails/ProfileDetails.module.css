@@ -90,3 +90,11 @@
   width: 25%;
   height: 50%
 }
+
+img {
+  width: 320px;
+  height: 320px;
+  object-fit: cover;
+  border-radius: 5%;
+  border: 3px solid black;
+}
