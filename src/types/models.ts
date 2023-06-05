@@ -1,5 +1,12 @@
 /* ---------===== custom props ====--------- */
-
+export interface Comment {
+  id: number;
+  value: string
+  profileId: number;
+  commenterId: number;
+  createdAt: string;
+  updatedAt: string;
+}
 
 
 /* ---------===== auth models =====--------- */
@@ -10,6 +17,7 @@ export interface Profile {
   id: number;
   createdAt: string;
   updatedAt: string;
+  commentsReceived: Comment[];
 }
 
 export interface User {
@@ -20,3 +28,4 @@ export interface User {
   createdAt: string;
   updatedAt: string;
 }
+

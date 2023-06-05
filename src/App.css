@@ -22,21 +22,14 @@ main {
   min-height: calc(100vh - 80px);
 }
 
-h1,
-h2,
-h3 {
-  margin: 8px 0px 16px 0px;
-}
+
 
 h1 {
   font-size: 24px;
   font-weight: 600;
 }
 
-h2 {
-  font-size: 20px;
-  font-weight: 500;
-}
+
 
 h3 {
   font-size: 18px;

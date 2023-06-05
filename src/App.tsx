@@ -1,6 +1,6 @@
 // npm modules 
 import { useEffect, useState } from 'react'
-import { Routes, Route, useNavigate } from 'react-router-dom'
+import { Routes, Route, useNavigate} from 'react-router-dom'
 
 // pages
 import Signup from './pages/Signup/Signup'
@@ -8,6 +8,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
+import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -51,6 +52,8 @@ function App(): JSX.Element {
     user ? fetchProfiles() : setProfiles([])
   }, [user])
 
+
+
   return (
     <>
       <NavBar user={user} handleLogout={handleLogout} />
@@ -79,6 +82,14 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <ChangePassword handleAuthEvt={handleAuthEvt} />
+            </ProtectedRoute>
+          }
+        />
+          <Route
+          path="/profiles/:profileId"
+          element={
+            <ProtectedRoute user={user}>
+              <ProfileDetails />
             </ProtectedRoute>
           }
         />
