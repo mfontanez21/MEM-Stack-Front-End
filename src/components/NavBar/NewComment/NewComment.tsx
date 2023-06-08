@@ -1,45 +1,39 @@
-// npm imports
-import { ChangeEvent, useState, FormEvent } from "react"
-import styles from "./NewComment.module.css"
+import React, { FormEvent, ChangeEvent, useState } from 'react';
+import styles from './NewComment.module.css'
+import { CommentFormData } from '../../../types/forms';
 
 
-interface CommentsProps {
-  
-  handleAddComment: (commentFormData: string) => void
+
+interface Props {
+  handleAddComment: (commentFormData: CommentFormData) => Promise<void>;
 }
 
-const NewComment = (props: CommentsProps) => {
-  const { handleAddComment } = props
-  const [formData, setFormData] = useState({ text: '' })
+const NewComment: React.FC<Props> = (props) => {
+  const [formData, setFormData] = useState<CommentFormData>({ value: '' });
 
-  const handleChange = (evt: ChangeEvent<HTMLInputElement>) => {
-    setFormData({ ...formData, [evt.target.name]: evt.target.value })
-  }
-
-  const handleSubmit = (event: FormEvent<HTMLFormElement>): void => {
+  const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
-    props.handleAddComment(formData.text); 
-    setFormData({ text: '' });
+    props.handleAddComment(formData);
+    setFormData({ value: '' });
   };
-  
 
-
+  const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
+    setFormData({ value: event.target.value });
+  };
 
   return (
-    <form className={styles.container} >
+    <form className={styles.container} onSubmit={handleSubmit}>
       <textarea
         required
-        type="text"
         name="text"
         id="text-input"
-        value={formData.text}
+        value={formData.value}
         placeholder="Add a Comment"
-        onSubmit={handleSubmit}
-        handleChange={handleChange}
+        onChange={handleChange}
       />
       <button type="submit">Sign Yearbook</button>
     </form>
-  )
-}
+  );
+};
 
-export default NewComment
+export default NewComment;

@@ -1,5 +1,8 @@
 /* ---------==== custom forms ====--------- */
 
+export interface CommentFormData {
+  value: string;
+}
 
 
 /* ---------===== auth forms =====--------- */

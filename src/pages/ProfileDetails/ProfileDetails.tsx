@@ -1,9 +1,10 @@
 // npm modules
-import { useEffect, useState } from "react"
+import React, { useEffect, useState } from "react"
 import { useParams } from "react-router-dom"
 
 // services
 import * as profileService from '../../services/profileService'
+import * as commentService from '../../services/commentService'
 
 // css
 import styles from "./ProfileDetails.module.css"
@@ -14,10 +15,15 @@ import NewComment from "../../components/NavBar/NewComment/NewComment"
 import defaultPic from '../../assets/images/ga.png'
 
 import { Comment, Profile  } from "../../types/models"
+import { CommentFormData } from "../../types/forms"
+
+interface Props {
+  profiles: Profile[]
+}
 
 //load comments as part of the profile in the useffect
 
-const ProfileDetails = (): JSX.Element => {
+const ProfileDetails = (props: Props): JSX.Element => {
   const { profileId } = useParams()
   const [profile, setProfile] = useState<Profile | null>(null);
 
@@ -38,13 +44,28 @@ const ProfileDetails = (): JSX.Element => {
     fetchProfile()
   },[profileId])
 
-  const handleAddComment = async (commentFormData: string): Promise<void> => {
+  const handleAddComment = async (commentFormData: CommentFormData): Promise<void> => {
     
     if (profile && profileId){
       const newComment: Comment = await profileService.createComment(profileId, commentFormData)
       const updatedProfile: Profile = {...profile, commentsReceived: [...profile.commentsReceived, newComment]}
       setProfile(updatedProfile)
     }
+  }
+
+  const handleDeleteComment = async (evt: React.MouseEvent<HTMLParagraphElement>): Promise<void> => {
+    try{
+      if (profile && profileId){
+        const commentId = parseInt(evt.currentTarget.id)
+        await commentService.deleteComment(commentId)
+        const updatedProfile: Profile = {...profile, commentsReceived: profile.commentsReceived.filter((c) => c.id !== commentId) }
+        setProfile(updatedProfile)
+      }
+    } catch (error) {
+      console.log(error);
+      
+    }
+    
   }
 
   if(!profile) return <h1>testtesttest</h1>
@@ -57,9 +78,14 @@ const ProfileDetails = (): JSX.Element => {
     <>
     <main className={styles.container}>
     {profile.name}
-    <img src={profile.photo ? profile.photo : defaultPic} alt={`${profile.name}'s avatar`} className="photo"/>
+    <img src={profile.photo ? profile.photo : defaultPic} alt={`${profile.name}'s avatar`} className={styles.photo}/>
       {profile.commentsReceived.map((comment: Comment) => (
+        <div className={styles.signee}>
         <h3 key={comment.id}>{comment.value}</h3>
+        <img src = {props.profiles.find((p) => p.id === comment.commenterId)?.photo }/>
+        {comment.commenterId === profile.id && 
+        <p id={comment.id.toString()} onClick={handleDeleteComment}>X</p>}
+        </div>
       ))}
         <h1>Comments</h1>
   <NewComment handleAddComment={handleAddComment} />

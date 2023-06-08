@@ -2,7 +2,7 @@
 import * as tokenService from './tokenService'
 
 // types
-import { PhotoFormData } from '../types/forms'
+import { CommentFormData, PhotoFormData } from '../types/forms'
 import { Profile } from '../types/models'
 
 const BASE_URL = `${import.meta.env.VITE_BACK_END_SERVER_URL}/api/profiles`
@@ -49,7 +49,7 @@ async function show (profileId: string): Promise<Profile> {
   
 }
 
-async function createComment(profileId: string, commentFormData: string) {
+async function createComment(profileId: string, commentFormData: CommentFormData) {
   try {
     const res = await fetch(`${BASE_URL}/${profileId}/comments`, {
       method: 'POST',
@@ -57,12 +57,15 @@ async function createComment(profileId: string, commentFormData: string) {
         'Authorization': `Bearer ${tokenService.getToken()}`,
         'Content-Type': 'application/json'
       },
-      body: commentFormData
+      body: JSON.stringify(commentFormData)
     })
     return res.json()
   } catch (error) {
     console.log(error)
   }
 }
+
+
+
 
 export { getAllProfiles, addPhoto, show, createComment }

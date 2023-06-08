@@ -12,7 +12,7 @@ body {
   --primary: #F2B138;
   --secondary: #6574d0;
   --outline: #ffffff;
-  --background: #f2f4f8;
+  --background: #0B0B45;
   --border: rgb(220, 220, 220);
   --card-background: rgb(255, 255, 255);
 }
@@ -88,8 +88,8 @@ article section {
 }
 
 article>img {
-  width: 80px;
-  height: 80px;
+  width: 150px;
+  height: 150px;
   object-fit: cover;
   border-radius: 50%;
   border: 3px solid white;

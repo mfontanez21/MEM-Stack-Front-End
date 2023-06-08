@@ -39,7 +39,7 @@
   font-weight: 600;
   margin-bottom: 10px;
   color: var(--primary);
-  margin: 500px
+  margin: 10px
 }
 
 .container span {
@@ -91,10 +91,26 @@
   height: 50%
 }
 
-img {
-  width: 320px;
-  height: 320px;
+.signee > img {
+  width: 100px;
+  height: 100px;
   object-fit: cover;
   border-radius: 5%;
   border: 3px solid black;
 }
+
+.signee {
+  display: flex;
+  justify-content: center;
+  align-content: center;
+  margin: 20px;
+}
+
+.photo {
+  width: 160px;
+  height: 160px;
+  object-fit: cover;
+  border-radius: 5%;
+  border: 3px solid black;
+}
+
