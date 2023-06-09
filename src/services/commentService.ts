@@ -1,5 +1,8 @@
 // services
+import { CommentFormData } from '../types/forms'
 import * as tokenService from './tokenService'
+
+import { Comment } from '../types/models'
 
 
 
@@ -16,4 +19,17 @@ async function deleteComment(commentId: number):Promise<void> {
   })
 }
 
-export { deleteComment, }
+async function updateComment(commentId: number, commentFormData: CommentFormData): Promise<Comment> {
+
+  const res = await fetch(`${BASE_URL}/${commentId}`, {
+    method: 'PUT',
+    headers: {
+      'Authorization': `Bearer ${tokenService.getToken()}`,
+
+    },
+    body: JSON.stringify(commentFormData)
+  })
+  return await res.json() as Comment
+}
+
+export { deleteComment, updateComment}

@@ -9,16 +9,16 @@ interface Props {
 }
 
 const NewComment: React.FC<Props> = (props) => {
-  const [formData, setFormData] = useState<CommentFormData>({ value: '' });
+  const [formData, setFormData] = useState<CommentFormData>({ value: '', id: null});
 
   const handleSubmit = (event: FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     props.handleAddComment(formData);
-    setFormData({ value: '' });
+    setFormData({ value: '', id: null });
   };
 
   const handleChange = (event: ChangeEvent<HTMLTextAreaElement>) => {
-    setFormData({ value: event.target.value });
+    setFormData({ value: event.target.value, id: null });
   };
 
   return (
@@ -28,10 +28,9 @@ const NewComment: React.FC<Props> = (props) => {
         name="text"
         id="text-input"
         value={formData.value}
-        placeholder="Add a Comment"
         onChange={handleChange}
       />
-      <button type="submit">Sign Yearbook</button>
+      <button type="submit">Add Signature</button>
     </form>
   );
 };

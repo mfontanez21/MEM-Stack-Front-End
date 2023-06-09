@@ -1,6 +1,7 @@
 /* ---------==== custom forms ====--------- */
 
 export interface CommentFormData {
+  id: number | null;
   value: string;
 }
 

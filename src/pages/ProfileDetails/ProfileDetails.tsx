@@ -1,6 +1,7 @@
 // npm modules
 import React, { useEffect, useState } from "react"
-import { useParams } from "react-router-dom"
+import { useParams, Link } from "react-router-dom"
+
 
 // services
 import * as profileService from '../../services/profileService'
@@ -14,11 +15,12 @@ import NewComment from "../../components/NavBar/NewComment/NewComment"
 
 import defaultPic from '../../assets/images/ga.png'
 
-import { Comment, Profile  } from "../../types/models"
+import { Comment, Profile, User  } from "../../types/models"
 import { CommentFormData } from "../../types/forms"
 
 interface Props {
   profiles: Profile[]
+  user: User | null
 }
 
 //load comments as part of the profile in the useffect
@@ -53,10 +55,10 @@ const ProfileDetails = (props: Props): JSX.Element => {
     }
   }
 
-  const handleDeleteComment = async (evt: React.MouseEvent<HTMLParagraphElement>): Promise<void> => {
+  const handleDeleteComment = async (event: React.MouseEvent<HTMLButtonElement>): Promise<void> => {
     try{
       if (profile && profileId){
-        const commentId = parseInt(evt.currentTarget.id)
+        const commentId = parseInt(event.currentTarget.id)
         await commentService.deleteComment(commentId)
         const updatedProfile: Profile = {...profile, commentsReceived: profile.commentsReceived.filter((c) => c.id !== commentId) }
         setProfile(updatedProfile)
@@ -68,7 +70,11 @@ const ProfileDetails = (props: Props): JSX.Element => {
     
   }
 
-  if(!profile) return <h1>testtesttest</h1>
+
+  
+
+  if(!profile) return <h1>No profile!</h1>
+  if(!props.user) return <h1>No users!</h1>
 
   console.log(profile);
   
@@ -83,8 +89,12 @@ const ProfileDetails = (props: Props): JSX.Element => {
         <div className={styles.signee}>
         <h3 key={comment.id}>{comment.value}</h3>
         <img src = {props.profiles.find((p) => p.id === comment.commenterId)?.photo }/>
-        {comment.commenterId === profile.id && 
-        <p id={comment.id.toString()} onClick={handleDeleteComment}>X</p>}
+        
+        {comment.commenterId === props.user?.profile.id && 
+        <button id={comment.id.toString()} onClick={handleDeleteComment}>Delete</button>}
+        <Link to={`/comments/${comment.id}`} state={{comment: comment, profileId: profileId}}>
+        <button>Update</button>
+        </Link>
         </div>
       ))}
         <h1>Comments</h1>

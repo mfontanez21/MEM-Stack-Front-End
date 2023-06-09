@@ -23,6 +23,7 @@ import './App.css'
 
 // types
 import { User, Profile } from './types/models'
+import EditComment from './pages/EditComment/EditComment'
 
 function App(): JSX.Element {
   const [user, setUser] = useState<User | null>(authService.getUser())
@@ -89,11 +90,20 @@ function App(): JSX.Element {
           path="/profiles/:profileId"
           element={
             <ProtectedRoute user={user}>
-              <ProfileDetails profiles={profiles}/>
+              <ProfileDetails profiles={profiles} user={user}/>
+            </ProtectedRoute>
+          }
+        />
+          <Route
+          path="/comments/:commentId"
+          element={
+            <ProtectedRoute user={user}>
+              <EditComment user={user}/>
             </ProtectedRoute>
           }
         />
       </Routes>
+      
     </>
   )
 }

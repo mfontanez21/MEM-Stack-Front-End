@@ -9,8 +9,8 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   font-family: sofia-pro, sans-serif;
-  --primary: #F2B138;
-  --secondary: #6574d0;
+  --primary:#D1AE00;
+  --secondary: #D1AE00;
   --outline: #ffffff;
   --background: #0B0B45;
   --border: rgb(220, 220, 220);
