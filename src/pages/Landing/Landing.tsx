@@ -2,15 +2,11 @@
 import styles from './Landing.module.css'
 import caps from '../../assets/images/caps.png'
 
-// types
-import { User } from '../../types/models'
 
-interface LandingProps {
-  user: User | null;
-}
 
-const Landing = (props: LandingProps): JSX.Element => {
-  const { user } = props
+
+const Landing = (): JSX.Element => {
+  
 
   return (
     <main className={styles.container}>
