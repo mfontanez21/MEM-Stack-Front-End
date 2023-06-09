@@ -98,7 +98,7 @@ function App(): JSX.Element {
           path="/comments/:commentId"
           element={
             <ProtectedRoute user={user}>
-              <EditComment user={user}/>
+              <EditComment />
             </ProtectedRoute>
           }
         />

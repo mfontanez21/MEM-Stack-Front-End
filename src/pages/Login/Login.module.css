@@ -5,6 +5,10 @@ input {
   width: 300px;
 }
 
+body{
+  background-image: url('../../assets/images/wood.png');
+}
+
 .container {
   display: flex;
   align-items: center;

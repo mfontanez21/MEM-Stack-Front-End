@@ -1,5 +1,5 @@
 import { useState, ChangeEvent, FormEvent } from "react"
-import { useLocation, useParams, useNavigate } from "react-router-dom"
+import { useLocation, useNavigate } from "react-router-dom"
 import styles from './EditComment.module.css'
 
 
