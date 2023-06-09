@@ -25,11 +25,18 @@ main {
 
 
 h1 {
-  font-size: 24px;
+  font-size: 50px;
   font-weight: 600;
+  font-family: 'Graduate', cursive;
+  text-align: center;
 }
 
-
+h2 {
+  font-size: 40px;
+  font-weight: 600;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  text-align: center;
+}
 
 h3 {
   font-size: 18px;
@@ -148,6 +155,7 @@ nav ul {
 nav li {
   margin-left: 35px;
   text-align: right;
+  color: black;
 }
 
 .list {

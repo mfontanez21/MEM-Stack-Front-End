@@ -21,11 +21,13 @@ async function deleteComment(commentId: number):Promise<void> {
 
 async function updateComment(commentId: number, commentFormData: CommentFormData): Promise<Comment> {
 
+  console.log(commentFormData);
+  
   const res = await fetch(`${BASE_URL}/${commentId}`, {
     method: 'PUT',
     headers: {
       'Authorization': `Bearer ${tokenService.getToken()}`,
-
+      'Content-Type': 'application/json'
     },
     body: JSON.stringify(commentFormData)
   })

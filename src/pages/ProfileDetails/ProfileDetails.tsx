@@ -71,6 +71,7 @@ const ProfileDetails = (props: Props): JSX.Element => {
   }
 
 
+
   
 
   if(!profile) return <h1>No profile!</h1>
