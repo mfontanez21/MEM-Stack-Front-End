@@ -16,7 +16,7 @@ const Landing = (): JSX.Element => {
             <div className={styles.page}>
                 <h2>General Assembly</h2>
                 <p>Software Engineering Immersive 3/20/2023</p>
-                <img src={caps}/>
+                <img src={caps} className='capsImg'/>
             </div>
         </div>
     </main>

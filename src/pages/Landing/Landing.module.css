@@ -1,8 +1,12 @@
 body {
   margin: 0;
   padding: 0;
-  background-image: url('../../assets/images/wood.png');
+  
   color: white;
+}
+
+.container{
+  background-image: url('../../assets/images/wood.png');
 }
 
 .center {
@@ -60,7 +64,7 @@ body {
   transform: skewX(-45deg) translate(-11px, 30px) 
 }
 
-img{
+.capsImg{
   height: 150px;
   display: block;
   margin-left: auto;

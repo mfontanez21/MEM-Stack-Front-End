@@ -3,10 +3,12 @@
   display: flex;
   overflow: scroll;
   align-items: center;
-  flex-direction: column;
-  background-color: var(--card-background);
-  background-color: #0B0B45 ;
+  flex-direction: row;
+  background-image: url(../../assets/images/book.jpg);
   color: #D1AE00;
+  background-repeat: no-repeat;
+  background-size: cover;
+  
 }
 
 .container article, .container > section {
@@ -51,9 +53,7 @@
   align-items: center;
 }
 
-.container div {
-  width: 100%;
-}
+
 
 .container span button, .container span a {
   margin: 0;
@@ -88,74 +88,60 @@
   text-indent: 0px;
 }
 
-.photo{
-  width: 25%;
-  height: 50%
+.leftContainer {
+  display: flex;
+  flex-direction: column;
+  align-self: flex-start;
+  margin-left: 150px;
+  height: 100vh;
+  width: 600px;
 }
 
-.signee > img {
-  width: 100px;
-  height: 100px;
-  object-fit: cover;
-  border-radius: 5%;
-  border: 3px solid black;
+.rightContainer{
+  display: flex;
+  flex-direction: column;
+  height: 800px;
+}
+
+.commenterContainer{
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  align-items: end;
+  top: 0;
 }
 
 .signee {
   display: flex;
+  flex-direction: row;
   justify-content: center;
   align-content: center;
   margin: 20px;
+  align-items: center;
+  
 }
 
+
 .photo {
-  width: 160px;
-  height: 160px;
+  width: 320px;
+  height: 320px;
   object-fit: cover;
   border-radius: 5%;
   border: 3px solid black;
 }
 
+.commenterImage{
+  width: 50px;
+  height: 50px;
+  object-fit: cover;
+  border-radius: 5%;
+  border: 3px solid black;
+}
 
-
-/* CSS */
-button {
-  appearance: button;
-  background-color: #1652F0;
-  border: 1px solid #1652F0;
-  border-radius: 4px;
-  box-sizing: border-box;
-  color: #FFFFFF;
+.buttons{
+  height: 16px;
+  width: 16px;
+  outline: none;
+  border: none;
+  background-color: transparent;
   cursor: pointer;
-  font-family: Graphik,-apple-system,system-ui,"Segoe UI",Roboto,Oxygen,Ubuntu,Cantarell,"Fira Sans","Droid Sans","Helvetica Neue",sans-serif;
-  font-size: 14px;
-  line-height: 1.15;
-  overflow: visible;
-  padding: 12px 16px;
-  position: relative;
-  text-align: center;
-  text-transform: none;
-  transition: all 80ms ease-in-out;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: fit-content;
-}
-
-.button-26:disabled {
-  opacity: .5;
-}
-
-.button-26:focus {
-  outline: 0;
-}
-
-.button-26:hover {
-  background-color: #0A46E4;
-  border-color: #0A46E4;
-}
-
-.button-26:active {
-  background-color: #0039D7;
-  border-color: #0039D7;
 }

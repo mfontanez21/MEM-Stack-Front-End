@@ -19,7 +19,7 @@ const Profiles = (props: ProfilesProps): JSX.Element => {
   }
 
   return (
-    <main className='list'>
+    <main className={styles.list}>
       {profiles.map((profile: Profile) =>
         <ProfileCard
           key={profile.id}

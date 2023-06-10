@@ -26,6 +26,7 @@ const NewComment: React.FC<Props> = (props) => {
       <textarea
         required
         name="text"
+        cols={30}
         id="text-input"
         value={formData.value}
         onChange={handleChange}

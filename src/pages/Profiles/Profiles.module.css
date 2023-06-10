@@ -9,8 +9,32 @@
   margin: 8px;
 }
 
-body {
-  background-image: url('../../assets/images/wood.png');
+.list {
+  background-image: url('../../assets/images/meme.jpg');
   background-repeat: no-repeat;
   background-size: cover;
+    min-height: fit-content;
+    gap: 14px;
+    display: grid;
+    padding: 20px;
+    grid-template-columns: repeat(4, 1fr);
 }
+
+@media only screen and (min-width: 900px) {
+  .list {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1200px) {
+  .list {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media only screen and (min-width: 1500px) {
+  .list {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
