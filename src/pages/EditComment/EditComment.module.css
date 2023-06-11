@@ -1,0 +1,18 @@
+.container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.header{
+  margin: 50px;
+}
+
+.buttons{
+  outline: none;
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+}
+

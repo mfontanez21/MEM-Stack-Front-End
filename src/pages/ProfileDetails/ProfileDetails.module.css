@@ -39,7 +39,7 @@
 
 .container h3 {
   margin: 0;
-  font-size: 16px;
+  font-size: 32px;
   font-weight: 600;
   margin-bottom: 10px;
   color: var(--primary);
@@ -95,6 +95,8 @@
   margin-left: 150px;
   height: 100vh;
   width: 600px;
+  margin-top: 50px;
+  
 }
 
 .rightContainer{
@@ -144,4 +146,8 @@
   border: none;
   background-color: transparent;
   cursor: pointer;
+}
+
+.signee>h3{
+  color: #0B0B45;
 }

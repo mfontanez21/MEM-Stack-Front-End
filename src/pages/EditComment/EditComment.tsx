@@ -2,7 +2,7 @@ import { useState, ChangeEvent, FormEvent } from "react"
 import { useLocation, useNavigate } from "react-router-dom"
 import styles from './EditComment.module.css'
 
-
+import diskette from '../../assets/images/diskette.png'
 
 // Services
 import * as commentService from '../../services/commentService'
@@ -41,8 +41,10 @@ console.log(state);
   return (
     <main className={styles.container}>
       <form onSubmit={handleSubmit} className={styles.container} >
-        <h1>Edit Signature</h1>
-        
+        <div className={styles.header}>
+          <h1>Edit Signature</h1>
+          </div>
+          
       <textarea
         required
         name="value"
@@ -50,7 +52,7 @@ console.log(state);
         value={formData.value}
         onChange={handleChange}
         />
-        <button type="submit">SUBMIT</button>
+        <button type="submit" className={styles.buttons}><img src={diskette}/></button>
       </form>
     </main>
   )

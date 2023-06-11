@@ -1,6 +1,6 @@
 import React, { FormEvent, ChangeEvent, useState } from 'react';
 import styles from './NewComment.module.css'
-import { CommentFormData } from '../../../types/forms';
+import { CommentFormData } from '../../types/forms';
 
 
 
@@ -22,13 +22,14 @@ const NewComment: React.FC<Props> = (props) => {
   };
 
   return (
-    <form className={styles.container} onSubmit={handleSubmit}>
+    <form className={styles.container} onSubmit={handleSubmit} >
       <textarea
         required
         name="text"
         cols={30}
         id="text-input"
         value={formData.value}
+        placeholder='limited to 255 characters'
         onChange={handleChange}
       />
       <button type="submit">Add Signature</button>

@@ -12,7 +12,7 @@ import trash from '../../assets/images/trash-can.png'
 import pencil from '../../assets/images/pencil.png'
 
 //pages
-import NewComment from "../../components/NavBar/NewComment/NewComment";
+import NewComment from "../../components/NewComment/NewComment";
 
 import defaultPic from "../../assets/images/ga.png";
 
@@ -114,14 +114,16 @@ const ProfileDetails = (props: Props): JSX.Element => {
                 <img src={trash}height={16} />
               </button>
             )}
+            {comment.commenterId === props.user?.profile.id && (
             <Link
               to={`/comments/${comment.id}`}
               state={{ comment: comment, profileId: profileId }}
             >
               <button className={styles.buttons}><img src={pencil} /></button>
             </Link>
-          </div>
           
+            )}
+            </div>
         ))}
         </div>
       </div>
