@@ -9,6 +9,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import ChangePassword from './pages/ChangePassword/ChangePassword'
 import ProfileDetails from './pages/ProfileDetails/ProfileDetails'
+import Superlatives from './pages/Superlatives/Superlatives'
 
 // components
 import NavBar from './components/NavBar/NavBar'
@@ -99,6 +100,14 @@ function App(): JSX.Element {
           element={
             <ProtectedRoute user={user}>
               <EditComment />
+            </ProtectedRoute>
+          }
+        />
+        <Route
+          path="/superlatives"
+          element={
+            <ProtectedRoute user={user}>
+              <Superlatives />
             </ProtectedRoute>
           }
         />

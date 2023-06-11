@@ -1,0 +1,33 @@
+.container{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: white;
+  color: white
+}
+
+.winnerImg{
+  height: 150px;
+  width: 150px;
+}
+
+.winner{
+  display: flex;
+  flex-direction: column;
+  margin-top: 100px;
+  --secondary: darkslateblue;
+  background-color: darkslateblue;
+}
+
+.bigImg{
+  height: 300px;
+  width: 300px;
+  object-fit: cover;
+  border: 3px solid white;
+  margin-top: 0px;
+}
+
+.winner>h1{
+  color: white;
+}

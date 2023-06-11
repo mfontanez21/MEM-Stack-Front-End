@@ -94,14 +94,7 @@ article section {
   justify-content: center;
 }
 
-article>img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 50%;
-  border: 3px solid white;
-  margin-top: 0px;
-}
+
 
 article * {
   z-index: 0;
@@ -176,4 +169,13 @@ nav li {
 .cap{
   font-size: 50px;
   padding-top: 30px;
+}
+
+.profileImg {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 3px solid white;
+  margin-top: 0px;
 }
