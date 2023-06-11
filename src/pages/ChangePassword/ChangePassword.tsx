@@ -1,52 +1,51 @@
 // npm modules
-import { useState } from 'react'
-import { Link, useNavigate } from 'react-router-dom'
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
 
 // services
-import * as authService from '../../services/authService'
+import * as authService from "../../services/authService";
 
 // css
-import styles from './ChangePassword.module.css'
+import styles from "./ChangePassword.module.css";
 
 // types
-import { AuthPageProps } from '../../types/props'
-import { ChangePasswordFormData } from '../../types/forms'
-import { handleErrMsg } from '../../types/validators'
-
+import { AuthPageProps } from "../../types/props";
+import { ChangePasswordFormData } from "../../types/forms";
+import { handleErrMsg } from "../../types/validators";
 
 const ChangePassword = (props: AuthPageProps): JSX.Element => {
-  const { handleAuthEvt } = props
-  const navigate = useNavigate()
+  const { handleAuthEvt } = props;
+  const navigate = useNavigate();
 
-  const [message, setMessage] = useState('')
+  const [message, setMessage] = useState("");
   const [formData, setFormData] = useState<ChangePasswordFormData>({
-    curPassword: '',
-    newPassword: '',
-    newPasswordConf: '',
-  })
+    curPassword: "",
+    newPassword: "",
+    newPasswordConf: "",
+  });
 
   const handleChange = (evt: React.ChangeEvent<HTMLInputElement>): void => {
-    setMessage('')
-    setFormData({ ...formData, [evt.target.name]: evt.target.value })
-  }
+    setMessage("");
+    setFormData({ ...formData, [evt.target.name]: evt.target.value });
+  };
 
   const handleSubmit = async (evt: React.FormEvent): Promise<void> => {
-    evt.preventDefault()
+    evt.preventDefault();
     try {
-      await authService.changePassword(formData)
-      handleAuthEvt()
-      navigate('/')
+      await authService.changePassword(formData);
+      handleAuthEvt();
+      navigate("/");
     } catch (err) {
-      console.log(err)
-      handleErrMsg(err, setMessage)
+      console.log(err);
+      handleErrMsg(err, setMessage);
     }
-  }
+  };
 
-  const { curPassword, newPassword, newPasswordConf } = formData
+  const { curPassword, newPassword, newPasswordConf } = formData;
 
   const isFormInvalid = (): boolean => {
-    return !(curPassword && newPassword && newPassword === newPasswordConf)
-  }
+    return !(curPassword && newPassword && newPassword === newPasswordConf);
+  };
 
   return (
     <main className={styles.container}>
@@ -88,7 +87,7 @@ const ChangePassword = (props: AuthPageProps): JSX.Element => {
         </div>
       </form>
     </main>
-  )
-}
+  );
+};
 
-export default ChangePassword
+export default ChangePassword;

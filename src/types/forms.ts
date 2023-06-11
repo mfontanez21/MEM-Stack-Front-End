@@ -5,7 +5,6 @@ export interface CommentFormData {
   value: string;
 }
 
-
 /* ---------===== auth forms =====--------- */
 
 export interface LoginFormData {

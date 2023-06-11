@@ -14,7 +14,6 @@ body {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  
 }
 
 .page {
@@ -76,4 +75,13 @@ body {
 p{
   align-content: center;
   font-weight: 600;
+}
+
+
+.header{
+  font-size: 64px;
+  color: white;
+  font-weight: 600;
+  background-color: #0B0B45;
+  border-radius: 10px;
 }

@@ -1,13 +1,12 @@
 /* ---------===== custom props ====--------- */
 export interface Comment {
   id: number;
-  value: string
+  value: string;
   profileId: number;
   commenterId: number;
   createdAt: string;
   updatedAt: string;
 }
-
 
 /* ---------===== auth models =====--------- */
 
@@ -28,4 +27,3 @@ export interface User {
   createdAt: string;
   updatedAt: string;
 }
-

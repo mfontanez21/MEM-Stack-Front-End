@@ -8,8 +8,8 @@ import * as commentService from "../../services/commentService";
 
 // css
 import styles from "./ProfileDetails.module.css";
-import trash from '../../assets/images/trash-can.png'
-import pencil from '../../assets/images/pencil.png'
+import trash from "../../assets/images/trash-can.png";
+import pencil from "../../assets/images/pencil.png";
 
 //pages
 import NewComment from "../../components/NewComment/NewComment";
@@ -98,33 +98,38 @@ const ProfileDetails = (props: Props): JSX.Element => {
       </div>
       <div className={styles.rightContainer}>
         <div className={styles.commenterContainer}>
-        {profile.commentsReceived.map((comment: Comment) => (
-          <div className={styles.signee}>
-            <img
-              src={
-                props.profiles.find((p) => p.id === comment.commenterId)?.photo
-              }
-              className={styles.commenterImage}
-            />
-            <h3 key={comment.id}>{comment.value}</h3>
-        
+          {profile.commentsReceived.map((comment: Comment) => (
+            <div className={styles.signee}>
+              <img
+                src={
+                  props.profiles.find((p) => p.id === comment.commenterId)
+                    ?.photo
+                }
+                className={styles.commenterImage}
+              />
+              <h3 key={comment.id}>{comment.value}</h3>
 
-            {comment.commenterId === props.user?.profile.id && (
-              <button id={comment.id.toString()} onClick={handleDeleteComment} className={styles.buttons}>
-                <img src={trash}height={16} />
-              </button>
-            )}
-            {comment.commenterId === props.user?.profile.id && (
-            <Link
-              to={`/comments/${comment.id}`}
-              state={{ comment: comment, profileId: profileId }}
-            >
-              <button className={styles.buttons}><img src={pencil} /></button>
-            </Link>
-          
-            )}
+              {comment.commenterId === props.user?.profile.id && (
+                <button
+                  id={comment.id.toString()}
+                  onClick={handleDeleteComment}
+                  className={styles.buttons}
+                >
+                  <img src={trash} height={16} />
+                </button>
+              )}
+              {comment.commenterId === props.user?.profile.id && (
+                <Link
+                  to={`/comments/${comment.id}`}
+                  state={{ comment: comment, profileId: profileId }}
+                >
+                  <button className={styles.buttons}>
+                    <img src={pencil} />
+                  </button>
+                </Link>
+              )}
             </div>
-        ))}
+          ))}
         </div>
       </div>
     </main>
