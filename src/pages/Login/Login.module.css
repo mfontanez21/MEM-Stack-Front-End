@@ -45,3 +45,11 @@ body{
 .form > label:last-of-type {
   margin-bottom: 16px;
 }
+
+.header{
+    font-size: 64px;
+    color: white;
+    font-weight: 600;
+    background-color: #0B0B45;
+    border-radius: 10px;
+}
